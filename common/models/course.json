@@ -1,0 +1,69 @@
+{
+  "name": "Course",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "instructor": {
+      "type": "belongsTo",
+      "model": "Instructor",
+      "foreignKey": ""
+    },
+    "registrations": {
+      "type": "hasMany",
+      "model": "Registration",
+      "foreignKey": ""
+    },
+    "courseRatings": {
+      "type": "hasMany",
+      "model": "CourseRating",
+      "foreignKey": ""
+    },
+    "students": {
+      "type": "hasMany",
+      "model": "Student",
+      "foreignKey": "",
+      "through": "Registration"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

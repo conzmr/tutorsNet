@@ -1,0 +1,22 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "tutorsNetDB": {
+    "host": "",
+    "port": 0,
+    "url": "",
+    "database": "tutorsNetDB",
+    "password": "",
+    "name": "tutorsNetDB",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "fstorage": {
+    "name": "fstorage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./files"
+  }
+}
